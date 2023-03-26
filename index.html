@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Frontend Mentor | Space tourism website</title>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Space tourism website</title>
-</head>
-<body>
+    <!-- Google Fonts connection -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap" rel="stylesheet">
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+    <script src="js/main.js" defer></script>
+  </head>
+  <body class="index-body">
+    <header class="primary-header flex">
+      <a href="index.html">
+        <img class="navlogo" src="assets/shared/logo.svg" alt="Space Tourism Logo">
+      </a>
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation">
+        <span class="sr-only" aria-expanded="false">Menu</span>
+      </button>
+      <nav>
+        <ul class="primary-navigation underline-indicators flex" data-visible="false">
+          <li class="active navlinks"><a href="index.html"><span aria-hidden="true">00</span> Home</a></li>
+          <li class="navlinks"><a href="destination/moon.html"><span aria-hidden="true">01</span> Destination</a></li>
+          <li class="navlinks"><a href="crew/commander.html"><span aria-hidden="true">02</span> Crew</a></li>
+          <li class="navlinks"><a href="technology/technology-vehicle.html"><span aria-hidden="true">03</span> Technology</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  So, you want to travel to
-  Space
-  Let’s face it; if you want to go to space, you might as well genuinely go to 
-  outer space and not hover kind of on the edge of it. Well sit back, and relax 
-  because we’ll give you a truly out of this world experience!
+    <div class="intro-container flex">
+      <div class="intro-content">
+        <h5 class="intro-h5">So, you want to travel to</h5>
+        <h1 class="intro-h1">Space</h1>
+        <p class="intro-desc">
+          Let's face it; if you want to go to space, you might as well genuinely go to 
+          outer space and not hover kind of on the edge of it. Well sit back, and relax 
+          because we'll give you a truly out of this world experience!
+        </p>
+      </div>
+      <a href="#" class="intro-explore flex">
+        <h4>Explore</h4>
+      </a>
+    </div>
 
-  Explore
-
-</body>
+  </body>
 </html>
