@@ -88,6 +88,7 @@ body {
 
     display: grid;
     grid-template-rows: min-content 1fr;
+    overflow-x: hidden;
 }
 
 /* make images easier to work with */
@@ -189,6 +190,21 @@ select {
     border: 0;
 }
 
+.skip-to-content {
+    position: absolute;
+    z-index: 20;
+    background-color: hsl(var(--clr-white));
+    color: hsl(var(--clr-dark));
+    padding: .5em 1em;
+    margin-inline: auto;
+    transform: translateY(-100%);
+    transition: transform 250ms ease-in;
+}
+
+.skip-to-content:focus {
+    transform: translateY(0);
+}
+
 /* colors */
 .bg-dark { background-color: hsl(var(--clr-dark)); }
 .bg-accent { background-color: hsl(var(--clr-light)); }
@@ -273,12 +289,25 @@ select {
     opacity: 1;
 }
 
+/* primary-header */
+
+.logo {
+    margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.primary-header {
+    justify-content: space-between;
+    align-items: center;
+}
+
 .primary-navigation {
-    --gap: 8rem;
+    /* standard styling if browser does not support the backdrop-filter function */
+    --gap: clamp(1.5rem, 5vw, 3.5rem);
     --underline-gap: 2rem;
     list-style: none;
     padding: 0;
     margin: 0;
+    background-color: hsl(var(--clr-dark) / 0.95);
 }
 
 .primary-navigation a {
@@ -287,8 +316,105 @@ select {
 
 .primary-navigation a > span {
     font-weight: 700;
-    color: hsl(var(--clr-white) / .25);
     margin-right: .5em;
+}
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+    /* Checks if browser supports the backdrop-filter function and applies this style instead of the standard */
+    .primary-navigation {
+        --gap: clamp(1.5rem, 5vw, 3.5rem);
+        --underline-gap: 2rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background-color: hsl(var(--clr-white) / 0.05);
+        backdrop-filter: blur(1rem);
+    }
+}
+
+@media (max-width: 35em) {
+    .primary-navigation {
+        --underline-gap: .5rem;
+        position: fixed;
+        z-index: 10;
+        inset: 0 0 0 30%;
+        list-style: none;
+        padding: min(20rem, 15vh) 2rem;
+        margin: 0;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 500ms ease-in-out;
+    }
+
+    .primary-navigation.underline-indicators > .active {
+        border: 0;
+    }
+
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0);
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 20;
+        right: 1rem;
+        top: 2rem;
+        background: transparent;
+        border: 0;
+        background-image: url('./assets/shared/icon-hamburger.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 1.5rem;
+        aspect-ratio: 1;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background-image: url('./assets/shared/icon-close.svg');
+    }
+
+    .mobile-nav-toggle:focus-visible {
+        outline: 2px solid hsl(var(--clr-white) / .25);
+        outline-offset: 5px;
+    }
+}
+
+
+@media (min-width: 35em) {
+    .primary-navigation {
+        padding-inline: clamp(3rem, 5vw, 7rem);
+    }
+}
+
+@media (min-width: 35em) and (max-width: 44.999em) {
+    .primary-navigation a > span {
+        display: none;
+    }
+}
+
+@media (min-width: 45em) {
+    .primary-header::after {
+        content: '';
+        display: block;
+        position: relative;
+        height: 1px;
+        width: 100%;
+        background-color: hsl(var(--clr-white) / .25);
+        order: 1;
+        margin-right: -2.5rem;
+    }
+
+    nav {
+        order: 2;
+    }
+    
+    .primary-navigation {
+        margin-block: 2rem;
+    }
 }
 
 .underline-indicators > * {

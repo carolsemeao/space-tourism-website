@@ -11,27 +11,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
 
-    <!-- CSS -->
+    <!-- CSS and JavaScript-->
     <link rel="stylesheet" href="index.css" />
+    <script src="js/main.js" defer></script>
   </head>
   <body class="home">
-
+    <a href="#main" class="skip-to-content">Skip to content</a>
     <header class="primary-header flex">
       <div>
         <img src="assets/shared/logo.svg" alt="space tourism logo" class="logo">
       </div>
-      <button class="mobile-nav-toggle"><span class="sr-only">Menu</span></button>
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation">
+        <span class="sr-only" aria-expanded="false">Menu</span>
+      </button>
       <nav>
-          <ul class="primary-navigation flex underline-indicators">
-              <li class="active"><a href="index.html" class="txt-white fs-300 uppercase letter-spacing-2 ff-sans-cond"><span>00</span>Home</a>
-              <li><a href="destination.html" class="txt-white fs-300 uppercase letter-spacing-2 ff-sans-cond"><span>01</span>Destination</a>
-              <li><a href="crew.html" class="txt-white fs-300 uppercase letter-spacing-2 ff-sans-cond"><span>02</span>Crew</a>
-              <li><a href="technology.html" class="txt-white fs-300 uppercase letter-spacing-2 ff-sans-cond"><span>03</span>Technology</a>
+          <ul id="primary-navigation" data-visible="false" class="primary-navigation flex underline-indicators">
+              <li class="active"><a href="index.html" class="txt-white fs-300 uppercase letter-spacing-2 ff-sans-cond"><span aria-hidden="true">00</span>Home</a>
+              <li><a href="destination.html" class="txt-white fs-300 uppercase letter-spacing-2 ff-sans-cond"><span aria-hidden="true">01</span>Destination</a>
+              <li><a href="crew.html" class="txt-white fs-300 uppercase letter-spacing-2 ff-sans-cond"><span aria-hidden="true">02</span>Crew</a>
+              <li><a href="technology.html" class="txt-white fs-300 uppercase letter-spacing-2 ff-sans-cond"><span aria-hidden="true">03</span>Technology</a>
           </ul>
       </nav>
     </header>
     
-    <div class="grid-container grid-container--home">
+    <main id="main" class="grid-container grid-container--home">
       <div>
         <h1 class="txt-accent fs-500 ff-sans-cond uppercase letter-spacing-1">So, you want to travel to
         <span class="txt-white fs-900 ff-serif uppercase d-block">Space</span></h1>
@@ -42,7 +45,7 @@
       <div>
         <a href="#" class="large-button uppercase ff-serif txt-dark bg-white">Explore</a>
       </div>
-    </div>
+    </main>
 
   </body>
 </html>
