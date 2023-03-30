@@ -36,19 +36,20 @@
 
     <main id="main" class="grid-container grid-container--destination flow">
       <h1 class="numbered-title"><span aria-hidden="true">01</span>Pick your destination</h1>
-      
-      <img src="../assets/destination/image-moon.png" alt="the moon">
-
+      <picture>
+        <source srcset="../assets/destination/image-moon.webp" type="image/webp">
+        <img src="../assets/destination/image-moon.png" alt="the moon">
+      </picture>
       <div class="tab-list underline-indicators flex">
-        <button aria-selected="true" class="ff-sans-cond fs-300 uppercase letter-spacing-2 txt-accent bg-dark">Moon</button>
-        <button aria-selected="false" class="ff-sans-cond fs-300 uppercase letter-spacing-2 txt-accent bg-dark">Mars</button>
-        <button aria-selected="false" class="ff-sans-cond fs-300 uppercase letter-spacing-2 txt-accent bg-dark">Europa</button>
-        <button aria-selected="false" class="ff-sans-cond fs-300 uppercase letter-spacing-2 txt-accent bg-dark">Titan</button>
+        <button aria-selected="true" class="ff-sans-cond fs-300 uppercase letter-spacing-2 txt-accent">Moon</button>
+        <button aria-selected="false" class="ff-sans-cond fs-300 uppercase letter-spacing-2 txt-accent">Mars</button>
+        <button aria-selected="false" class="ff-sans-cond fs-300 uppercase letter-spacing-2 txt-accent">Europa</button>
+        <button aria-selected="false" class="ff-sans-cond fs-300 uppercase letter-spacing-2 txt-accent">Titan</button>
       </div>
 
-      <article class="destination-info">
+      <article class="destination-info flow">
           <h2 class="txt-white fs-900 ff-serif uppercase d-block">Moon</h2>
-          <p class="txt-accent">
+          <p>
             See our planet as you've never seen it before. A perfect relaxing trip away to help 
             regain perspective and come back refreshed. While you're there, take in some history 
             by visiting the Luna 2 and Apollo 11 landing sites.
