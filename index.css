@@ -96,7 +96,6 @@ body {
 img,
 picture {
     max-width: 100%;
-    display: block;
 }
 
 /* make forms easier to work with */
@@ -539,7 +538,7 @@ body {
         'content';
 }
 
-.grid-container--destination > picture {
+.grid-container--destination > .destination-img {
     grid-area: image;
     max-width: 60%;
 }
@@ -641,7 +640,7 @@ body {
             '. image content.'
     }
 
-    .grid-container--destination > picture,
+    .grid-container--destination > .destination-img,
     .grid-container--crew > picture {
         max-width: 80%;
     }
