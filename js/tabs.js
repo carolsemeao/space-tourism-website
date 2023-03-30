@@ -46,6 +46,13 @@ function changeTabPanel(e) {
 
     const tabContainer = targetTab.parentNode;
     const mainContainer = tabContainer.parentNode;
+
+    // Change selected state on tab when selected
+    tabContainer
+        .querySelector('[aria-selected="true"]')
+        .setAttribute("aria-selected", false);
+
+    targetTab.setAttribute("aria-selected", true);
     
     // Change the Text Content based on the tab that is selected
     mainContainer
