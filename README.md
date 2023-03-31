@@ -38,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/responsive-space-tourism-website-with-css-grid-QSasHMl3Pd](https://www.frontendmentor.io/solutions/responsive-space-tourism-website-with-css-grid-QSasHMl3Pd)
+- Live Site URL: [https://carolsemeao.github.io/space-tourism-website/](https://carolsemeao.github.io/space-tourism-website/)
 
 ## My process
 
