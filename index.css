@@ -457,7 +457,7 @@ select {
 
 @media (min-width: 45em) {
     .number-indicators {
-        --gap: 2rem;
+        --gap: 1.5rem;
         flex-direction: column;
     }
 
@@ -738,12 +738,15 @@ body {
     }
 
     .grid-container--technology {
-        grid-template-columns: minmax(0, 10rem) auto auto minmax(2rem, 1fr);
+        grid-template-columns: minmax(1rem, 5rem) auto auto minmax(2rem, 1fr);
         justify-items: start;
         grid-template-areas: 
             '. title title .'
-            '. numbers content image'
             '. numbers content image';
+    }
+
+    .grid-container--technology > .numbered-title {
+        margin-block: 0;
     }
 
     .grid-container--technology > .number-indicators {
@@ -756,11 +759,16 @@ body {
         margin-block: 0;
     }
 
+    .grid-container--technology > .technology-details p:nth-child(2),
+    .grid-container--crew > .crew-details p:nth-child(2),
+    .grid-container--destination > .destination-info p:nth-child(2) {
+        color: hsl(var(--clr-light));
+        line-height: 1.6;
+    }
     .grid-container--technology > picture {
-        grid-column: span 2;
         justify-self: end;
         align-self: center; 
-        max-width: 90%;
+        max-width: 100%;
         border: 0;
         margin-block: 0;
     }
