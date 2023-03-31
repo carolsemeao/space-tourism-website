@@ -431,18 +431,19 @@ select {
 }
 
 .number-indicators {
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .number-indicators > * {
     cursor: pointer;
     border: .2rem solid hsl(var(--clr-white) / .25);
-    background-color: hsl(var(--clr-dark));
+    background-color: transparent;
     border-radius: 50%;
-    width: 80px;
+    width: 50px;
     padding: 0;
     aspect-ratio: 1;
 }
+
 
 .number-indicators > *:hover,
 .number-indicators > *:focus {
@@ -452,6 +453,17 @@ select {
 .number-indicators > [aria-selected="true"] {
     background-color: hsl(var(--clr-white) / 1);
     color: hsl(var(--clr-dark));
+}
+
+@media (min-width: 45em) {
+    .number-indicators {
+        --gap: 2rem;
+        flex-direction: column;
+    }
+
+    .number-indicators > * {
+        width: 80px;
+    }
 }
 
 
@@ -477,6 +489,10 @@ body {
     background-image: url('assets/crew/background-crew-mobile.jpg');
 }
 
+.technology {
+    background-image: url('assets/technology/background-technology-mobile.jpg');
+}
+
 @media (min-width: 35em) {
     .home {
         background-position: center center;
@@ -492,6 +508,11 @@ body {
         background-position: center center;
         background-image: url('assets/crew/background-crew-tablet.jpg');
     }
+
+    .technology {
+        background-position: center center;
+        background-image: url('assets/technology/background-technology-tablet.jpg');
+    }
 }
 
 @media (min-width: 45em) {
@@ -505,6 +526,10 @@ body {
 
     .crew {
         background-image: url('assets/crew/background-crew-desktop.jpg');
+    }
+
+    .technology {
+        background-image: url('assets/technology/background-technology-desktop.jpg');
     }
 }
 
@@ -538,9 +563,10 @@ body {
         'content';
 }
 
-.grid-container--destination > .destination-img {
+.grid-container--destination > picture {
     grid-area: image;
     max-width: 60%;
+    align-self: start;
 }
 
 .grid-container--destination > .tab-list {
@@ -590,6 +616,36 @@ body {
     color: hsl(var(--clr-white) / .5);
 }
 
+/* technology layout */
+.grid-container--technology {
+    --flow-space: 2rem;
+    padding-inline: 0;
+    grid-template-areas:
+        'title'
+        'image'
+        'numbers'
+        'content';
+}
+
+.grid-container--technology > .number-indicators {
+    grid-area: numbers;
+    margin-top: 0;
+    align-self: center;
+}
+
+.grid-container--technology > .technology-details {
+    --flow-space: 1rem;
+    grid-area: content;
+    padding-inline: 1rem;
+    align-self: start;
+}
+
+.grid-container--technology > picture {
+    grid-area: image;
+    max-width: 100%;
+    margin-top: 0;
+}
+
 @media (min-width: 35em) {
     .numbered-title {
         justify-self: start;
@@ -609,6 +665,17 @@ body {
             'dots'
             'image';
     }
+
+    .grid-container--technology {
+        --flow-space: 2rem;
+    }
+
+    .grid-container--technology > .numbered-title,
+    .grid-container--technology > .number-indicators {
+        padding-inline: 2.5rem;
+        margin-block: 1.5rem;
+    }  
+
 }
 
 @media (min-width: 45em) {
@@ -617,7 +684,7 @@ body {
         column-gap: var(--container-gap, 2rem);   
         grid-template-columns: minmax(2em, 1fr) repeat(2, minmax(0, 40rem)) minmax(2em, 1fr);
     }
-
+    
     .grid-container--home {
         padding-bottom: max(6rem, 20vh);
         align-items: end;
@@ -626,7 +693,7 @@ body {
     .grid-container--home > *:first-child {
         grid-column: 2;
     }
-    
+
     .grid-container--home > *:last-child {
         grid-column: 3;
     }
@@ -640,8 +707,7 @@ body {
             '. image content.'
     }
 
-    .grid-container--destination > .destination-img,
-    .grid-container--crew > picture {
+    .grid-container--destination > picture {
         max-width: 80%;
     }
 
@@ -649,24 +715,54 @@ body {
         --gap: min(6vw, 6rem);
         justify-content: start;
     }
-
+    
     .grid-container--crew {
-        grid-template-areas:
+        grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 40rem) minmax(2rem, 1fr);
+        justify-items: start;
+        grid-template-areas: 
             '. title title .'
             '. content image .'
             '. dots image .';
-        
+    }
+    
+    .grid-container--crew > picture {
+        grid-column: span 2;
+        justify-self: center;
+        align-self: end; 
+        max-width: 90%;
+        border: 0;
     }
 
     .grid-container--crew > .dot-indicators {
-        justify-self: start;
+        grid-area: dots;
     }
 
-    .grid-container--crew > picture {
-        align-self: end;
+    .grid-container--technology {
+        grid-template-columns: minmax(0, 10rem) auto auto minmax(2rem, 1fr);
+        justify-items: start;
+        grid-template-areas: 
+            '. title title .'
+            '. numbers content image'
+            '. numbers content image';
     }
 
-    .grid-container--crew > .crew-details {
-       place-self: end start;
+    .grid-container--technology > .number-indicators {
+        justify-self: center;
+        margin-block: 0;
     }
+
+    .grid-container--technology > .technology-details {
+        align-self: center;
+        margin-block: 0;
+    }
+
+    .grid-container--technology > picture {
+        grid-column: span 2;
+        justify-self: end;
+        align-self: center; 
+        max-width: 90%;
+        border: 0;
+        margin-block: 0;
+    }
+
 }
